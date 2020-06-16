@@ -5,10 +5,42 @@ FREQUENCIES = {'а': 0.074, 'б': 0.018, 'в': 0.054, 'г': 0.016, 'ґ': 0.001, 
                                 'т': 0.057, 'у': 0.041, 'ф': 0.001, 'х': 0.012, 'ц': 0.006, 'ч': 0.019, 'ш': 0.012,
                                 'щ': 0.001, 'ю': 0.004, 'я': 0.030, 'ь': 0.030}
 
+# FREQUENCIES = {'e' : 0.12,
+# 't' : 0.091,
+# 'a' : 0.0812,
+# 'o' : 0.0768,
+# 'i' : 0.0731,
+# 'n' : 0.0695,
+# 's' : 0.0628,
+# 'r' : 0.0602,
+# 'h' : 0.0592,
+# 'd' : 0.0432,
+# 'l' : 0.0398,
+# 'u' : 0.0288,
+# 'c' : 0.0271,
+# 'm' : 0.0261,
+# 'f' : 0.0230,
+# 'y' : 0.0211,
+# 'w' : 0.0209,
+# 'g' : 0.0203,
+# 'p' : 0.0182,
+# 'b' : 0.0149,
+# 'v' : 0.0111,
+# 'k' : 0.0069,
+# 'x' : 0.0017,
+# 'q' : 0.0011,
+# 'j' : 0.0010,
+# 'z' : 0.0007 }
+
 ntoa = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя"
-aton = dict(zip("абвгґдеєжзиіїйклмнопрстуфхцчшщьюя", range(33)))
+#ntoa = "abcdefghijklmnopqrstuvwxyz"
+
+
 ALPH_LEN = len(ntoa)
+aton = dict(zip(ntoa, range(ALPH_LEN)))
 
-CI = sum([FREQUENCIES[l]**2 for l in FREQUENCIES.keys()])
+CI = sum([FREQUENCIES[l]**2 for l in FREQUENCIES.keys()])*ALPH_LEN
 
-print("Ukrainian CI: {}\nUniform CI: {}".format(CI, 1/33))
+if __name__ == '__main__':
+    print("Ukrainian")
+    print("ALPH_LEN: {}\nCI: {}\nUniform CI: {}".format(ALPH_LEN, CI, 1/ALPH_LEN))
